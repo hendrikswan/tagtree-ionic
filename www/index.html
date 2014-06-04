@@ -48,7 +48,7 @@
 
         <ion-side-menu side="left">
           <ul class="list">
-            <a href="#/" class="item" menu-close>all</a>
+            <a ng-click="filterBy('all')" class="item" menu-close>all</a>
             <a ng-repeat="techItem in tech" ng-click="filterBy('{{techItem}}')" class="item" menu-close>{{techItem}}</a>
           </ul>
         </ion-side-menu>

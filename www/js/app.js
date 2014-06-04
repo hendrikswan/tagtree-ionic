@@ -37,7 +37,7 @@ angular.module('tagtree', ['ionic'])
 
   $scope.filterBy = function(filter){
     if(filter === 'all'){
-      return $scope.filteredEpisodes = $scope.episodes;
+      return $scope.episodes = $scope.allEpisodes;
     }
     $scope.episodes = $scope.allEpisodes.filter(function(ep){return ep.tech.indexOf(filter) > -1;})
   }
