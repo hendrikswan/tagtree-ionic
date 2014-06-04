@@ -20,7 +20,16 @@ angular.module('tagtree', ['ionic'])
   });
 })
 
-.controller('MainCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $http) {
+
+  $http.get('http://tagtree.tv/feed.json')
+  .success(function(episodes){
+    $scope.allEpisodes = episodes;
+    $scope.episodes = episodes;
+  });
+
+
+
   $scope.toggleLeft = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
