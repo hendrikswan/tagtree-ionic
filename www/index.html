@@ -47,7 +47,10 @@
         </ion-side-menu-content>
 
         <ion-side-menu side="left">
-          This is the side menu on the left
+          <ul class="list">
+            <a href="#/" class="item" menu-close>all</a>
+            <a ng-repeat="techItem in tech" ng-click="filterBy('{{techItem}}')" class="item" menu-close>{{techItem}}</a>
+          </ul>
         </ion-side-menu>
 
       </ion-side-menus>

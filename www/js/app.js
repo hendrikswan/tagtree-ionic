@@ -21,12 +21,26 @@ angular.module('tagtree', ['ionic'])
 })
 
 .controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $http) {
+  $scope.tech = [
+    'node',
+    'graphics',
+    'es6',
+    'mv'
+  ];
+
 
   $http.get('http://tagtree.tv/feed.json')
   .success(function(episodes){
     $scope.allEpisodes = episodes;
     $scope.episodes = episodes;
   });
+
+  $scope.filterBy = function(filter){
+    if(filter === 'all'){
+      return $scope.filteredEpisodes = $scope.episodes;
+    }
+    $scope.episodes = $scope.allEpisodes.filter(function(ep){return ep.tech.indexOf(filter) > -1;})
+  }
 
 
 
